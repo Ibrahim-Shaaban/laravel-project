@@ -13,6 +13,7 @@
               <th>Status</th>
               <th>created at</th>
               <th>updated at</th>
+              <th>actions</th>
           </tr>
         </thead>
         <tbody>
@@ -23,12 +24,17 @@
                     <tr>
                         <td>{{$user->id}}</td>
                         <td>{{$user->name}}</td>
-                        <td><img height="50" src="{{$user->photo ? $user->photo->file : 'there is no photo'}}"></td>
+                        <td><img height="50" src="{{$user->photo ? $user->photo->file : 'http//placehold.it/400x400'}}"></td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->role->name}}</td>
                         <td>{{$user->is_active == 1 ? 'active' : 'not active'}}</td>
                         <td>{{$user->created_at}}</td>
                         <td>{{$user->updated_at}}</td>
+                        <td>
+                            <button class="btn btn-success">
+                                <a href="{{route('admin.users.edit' , $user->id)}}" style="text-decoration: none;color: white;">Edit</a>
+                            </button>
+                        </td>
                     </tr>
                 @endforeach
 
